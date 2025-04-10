@@ -6,10 +6,8 @@
 Az **ELVEX PROJECT** egy olyan weboldal, ahol felhasználók egyszerűen feltölthetik eladni kívánt értéktárgyaikat, és mások vásárolhatják meg azokat. A projektünk 2024 szeptemberében indult, és 2025 februárjában kezdtük el a GitHubra feltölteni a kódot.
 
 Ez az oldal egy **iskolai projekt** keretében készült, amelyet a szoftverfejlesztés vizsgára készítettünk. A projekt Laravel keretrendszerben készült, és célunk, hogy egy funkcionális és felhasználóbarát platformot hozzunk létre, amely bemutatja a modern webes fejlesztés alapjait.
-Bemutató: 
+Bemutató, dokumentáció: 
 https://www.canva.com/design/DAGiDqjfa6A/Yl6mLxmiVvNWSFRJTBV0PQ/view?utm_content=DAGiDqjfa6A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9723ffcc14
-
-Dokumentáció:
 https://docs.google.com/document/d/1lTaf-3ZjzvDfEEYVArPBL5h-EVCR8JkZ/edit?usp=sharing&ouid=118269145493210686971&rtpof=true&sd=true
 ---
 
