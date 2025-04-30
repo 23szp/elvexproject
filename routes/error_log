@@ -1,0 +1,4 @@
+[27-Feb-2025 10:13:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /cphome/rh48642/elvex.hu/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /cphome/rh48642/elvex.hu/routes/channels.php on line 16
