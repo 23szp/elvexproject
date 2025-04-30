@@ -5,6 +5,7 @@
 @section('content')
 <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
     <h2 class="text-2xl font-semibold mb-6">Regisztráció</h2>
+<<<<<<< HEAD
     
     @if (session('success'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -18,6 +19,8 @@
         </div>
     @endif
     
+=======
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="mb-4">
@@ -29,14 +32,21 @@
             @enderror
         </div>
         <div class="mb-4">
+<<<<<<< HEAD
             <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email<small class="text-gray-500">   (valós email cím)</small></label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('email') border-red-500 @enderror"
                    id="email" type="email" name="email" value="{{ old('email') }}" required>
                    
+=======
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('email') border-red-500 @enderror"
+                   id="email" type="email" name="email" value="{{ old('email') }}" required>
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
             @error('email')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
         </div>
+<<<<<<< HEAD
         <div class="mb-4 relative">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Jelszó</label>
             <div class="relative">
@@ -49,10 +59,17 @@
                     </svg>
                 </span>
             </div>
+=======
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Jelszó</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('password') border-red-500 @enderror"
+                   id="password" type="password" name="password" required>
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
             @error('password')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
         </div>
+<<<<<<< HEAD
         <div class="mb-6 relative">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="password_confirmation">Jelszó megerősítése</label>
             <div class="relative">
@@ -65,11 +82,18 @@
                     </svg>
                 </span>
             </div>
+=======
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password_confirmation">Jelszó megerősítése</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   id="password_confirmation" type="password" name="password_confirmation" required>
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
         </div>
         <button class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit">Regisztráció</button>
     </form>
 </div>
+<<<<<<< HEAD
 
 <script>
     function togglePasswordVisibility(fieldId) {
@@ -91,3 +115,6 @@
     }
 </script>
 @endsection
+=======
+@endsection
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169

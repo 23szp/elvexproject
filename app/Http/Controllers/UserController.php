@@ -9,11 +9,16 @@ class UserController extends Controller
 {
     public function show(User $user)
     {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
         $products = $user->products()->latest()->paginate(12);
 
         return view('user.show', compact('user', 'products'));
     }
+<<<<<<< HEAD
     public function update(Request $request, User $user)
 {
     $request->validate([
@@ -37,4 +42,6 @@ class UserController extends Controller
     return redirect()->route('admin.users.index')
         ->with('success', 'Felhasználó sikeresen frissítve!');
 }
+=======
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 }

@@ -13,16 +13,21 @@ class Product extends Model
         'condition',
         'image',
         'is_available',
+<<<<<<< HEAD
         'user_id',
         'category_id', 
         'email', 
         'phone', 
+=======
+        'user_id'
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+<<<<<<< HEAD
 
     public function category()
     {
@@ -41,3 +46,6 @@ public function getSavedCountAttribute()
     return $this->savedByUsers()->count();
 }
 }
+=======
+}
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169

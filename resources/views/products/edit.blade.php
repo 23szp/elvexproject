@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+<<<<<<< HEAD
 @section('title', 'Hirdetés szerkesztése')
 
 @section('content')
@@ -10,6 +11,17 @@
         @csrf
         @method('PUT')
 
+=======
+@section('title', 'Termék szerkesztése')
+
+@section('content')
+<div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-semibold mb-6">Termék szerkesztése</h2>
+    <form method="POST" action="{{ route('products.update', $product) }}" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="title">Termék neve</label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('title') border-red-500 @enderror"
@@ -52,6 +64,7 @@
         </div>
 
         <div class="mb-4">
+<<<<<<< HEAD
             <label class="block text-gray-700 text-sm font-bold mb-2" for="parent_category">Főkategória</label>
             <select id="parent_category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                 <option value="">Válassz főkategóriát</option>
@@ -134,6 +147,17 @@
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
             @error('new_images.*')
+=======
+            <label class="block text-gray-700 text-sm font-bold mb-2">Jelenlegi kép</label>
+            <img src="{{ Storage::url($product->image) }}" alt="Jelenlegi kép" class="w-32 h-32 object-cover rounded">
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="image">Új kép (opcionális)</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('image') border-red-500 @enderror"
+                   id="image" type="file" name="image" accept="image/*">
+            @error('image')
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
         </div>
@@ -142,6 +166,7 @@
                 type="submit">Mentés</button>
     </form>
 </div>
+<<<<<<< HEAD
 
 <script>
     function toggleImageDelete(imageId, button) {
@@ -286,3 +311,6 @@
     });
 </script>
 @endsection
+=======
+@endsection
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169

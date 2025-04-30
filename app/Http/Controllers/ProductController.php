@@ -3,25 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+<<<<<<< HEAD
 use App\Models\Category;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+=======
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 
 class ProductController extends Controller
 {
     public function index()
     {
+<<<<<<< HEAD
         $products = Product::with('user', 'category')->where('is_available', true)->latest()->paginate(12);
         $categories = Category::whereNull('parent_id')->with('children')->get();
         return view('products.index', compact('products', 'categories'));
+=======
+        $products = Product::with('user')->where('is_available', true)->latest()->paginate(12);
+        return view('products.index', compact('products'));
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     }
 
     public function create()
     {
+<<<<<<< HEAD
         $categories = Category::whereNull('parent_id')->get(); 
         return view('products.create', compact('categories'));
+=======
+        return view('products.create');
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     }
 
     public function store(Request $request)
@@ -29,6 +43,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
+<<<<<<< HEAD
             'price' => 'required|numeric|min:0|max:999999999',
             'condition' => 'required',
             'images' => 'required|array|min:1',
@@ -40,10 +55,21 @@ class ProductController extends Controller
 
 
         $product = auth()->user()->products()->create([
+=======
+            'price' => 'required|numeric|min:0',
+            'condition' => 'required',
+            'image' => 'required|image|max:2048'
+        ]);
+
+        $path = $request->file('image')->store('products', 'public');
+        
+        auth()->user()->products()->create([
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
             'title' => $validated['title'],
             'description' => $validated['description'],
             'price' => $validated['price'],
             'condition' => $validated['condition'],
+<<<<<<< HEAD
             'image' => null, 
             'category_id' => $validated['category_id'],
             'email' => $validated['email'],
@@ -68,11 +94,17 @@ class ProductController extends Controller
             }
         }
 
+=======
+            'image' => $path
+        ]);
+
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
         return redirect()->route('products.index')->with('success', 'Termék sikeresen létrehozva!');
     }
 
     public function edit(Product $product)
     {
+<<<<<<< HEAD
     
         if (Auth::user()->is_admin || $product->user_id === Auth::id()) {
             $categories = Category::whereNull('parent_id')->get(); 
@@ -80,10 +112,15 @@ class ProductController extends Controller
         }
 
         abort(403, 'Nincs jogosultságod a hirdetés szerkesztéséhez.');
+=======
+        $this->authorize('update', $product);
+        return view('products.edit', compact('product'));
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     }
 
     public function update(Request $request, Product $product)
     {
+<<<<<<< HEAD
      
         if (Auth::user()->is_admin || $product->user_id === Auth::id()) {
             $validated = $request->validate([
@@ -195,4 +232,26 @@ class ProductController extends Controller
 
         abort(403, 'Nincs jogosultságod a hirdetés törléséhez.');
     }
+=======
+        $this->authorize('update', $product);
+
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric|min:0',
+            'condition' => 'required',
+            'image' => 'nullable|image|max:2048'
+        ]);
+
+        if ($request->hasFile('image')) {
+            Storage::disk('public')->delete($product->image);
+            $validated['image'] = $request->file('image')->store('products', 'public');
+        }
+
+        $product->update($validated);
+
+        return redirect()->route('products.show', $product)->with('success', 'Termék sikeresen frissítve!');
+    }
+
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 }

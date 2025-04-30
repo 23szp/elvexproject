@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -45,5 +46,20 @@ class HomeController extends Controller
         $categories = Category::whereNull('parent_id')->with('children')->get();
     
         return view('home', compact('products', 'categories'));
+=======
+
+use App\Models\Product;
+
+class HomeController extends Controller
+{
+    public function index()
+    {
+        $products = Product::with('user')
+            ->where('is_available', true)
+            ->latest()
+            ->paginate(12);
+            
+        return view('home', compact('products'));
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     }
 }

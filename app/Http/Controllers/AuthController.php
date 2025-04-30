@@ -6,10 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+<<<<<<< HEAD
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+=======
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 
 class AuthController extends Controller
 {
@@ -21,7 +24,11 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
+<<<<<<< HEAD
             'name' => 'required|string|max:255|unique:users',
+=======
+            'name' => 'required|string|max:255',
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
@@ -30,6 +37,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+<<<<<<< HEAD
             'email_verification_token' => Str::random(60),
             'email_verified_at' => null,
         ]);
@@ -67,6 +75,13 @@ class AuthController extends Controller
         
         return redirect()->route('home')
             ->with('success', 'Email cím sikeresen megerősítve!');
+=======
+        ]);
+
+        Auth::login($user);
+
+        return redirect()->route('home');
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     }
 
     public function showLoginForm()
@@ -81,6 +96,7 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
+<<<<<<< HEAD
         $remember = $request->has('remember');
 
         if (Auth::attempt($credentials, $remember)) {
@@ -92,16 +108,25 @@ class AuthController extends Controller
             }
             
             return redirect()->intended('/')->with('success', 'Sikeres bejelentkezés!');
+=======
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/');
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
         }
 
         return back()->withErrors([
             'email' => 'A megadott adatok nem megfelelőek.',
+<<<<<<< HEAD
         ])->withInput($request->only('email', 'remember'));
+=======
+        ]);
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     }
 
     public function logout()
     {
         Auth::logout();
+<<<<<<< HEAD
 
         return redirect('/')->with('success', 'Sikeres kijelentkezés!');
     }
@@ -246,3 +271,8 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Az email megerősítő link újra elküldve.');
     }
 }
+=======
+        return redirect('/');
+    }
+}
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169

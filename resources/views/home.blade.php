@@ -3,6 +3,7 @@
 @section('title', 'Kezdőlap')
 
 @section('content')
+<<<<<<< HEAD
 <div
     class="relative w-full mb-8"
     style="margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); width: 100vw;"
@@ -202,5 +203,25 @@
             </div>
         @endif
     </div>
+=======
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    @foreach($products as $product)
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}" class="w-full h-48 object-cover">
+        <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800">{{ $product->title }}</h3>
+            <p class="text-purple-600 font-bold mt-2">{{ number_format($product->price, 0, ',', ' ') }} Ft</p>
+            <p class="text-gray-600 text-sm mt-2">{{ Str::limit($product->description, 100) }}</p>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-sm text-gray-500">{{ $product->user->name }}</span>
+                <a href="{{ route('products.show', $product) }}" class="text-purple-600 hover:text-purple-500">Részletek</a>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+<div class="mt-8">
+    {{ $products->links() }}
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 </div>
 @endsection

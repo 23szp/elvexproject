@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+<<<<<<< HEAD
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SavedProductController;
@@ -36,6 +37,11 @@ Route::get('/kapcsolat', function () {
 Route::get('/hirdetes', function () {
     return view('pages.hirdetes');
 })->name('hirdetes');
+=======
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
@@ -44,6 +50,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 
+<<<<<<< HEAD
 Route::get('/verify-email/{token}', [AuthController::class, 'verifyEmail'])->name('verify.email');
 Route::get('/resend-verification', [AuthController::class, 'showResendForm'])->name('verification.form');
 Route::post('/resend-verification', [AuthController::class, 'resendVerificationEmail'])->name('verification.resend');
@@ -99,4 +106,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
     Route::get('/categories/{parent}/children', [CategoryController::class, 'getChildren']);
+=======
+Route::middleware(['auth'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::resource('products', ProductController::class);
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 });

@@ -14,8 +14,11 @@ class User extends Authenticatable
         'email',
         'password',
         'profile_image',
+<<<<<<< HEAD
             'email_verification_token',
     'email_verified_at',
+=======
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     ];
 
     protected $hidden = [
@@ -27,6 +30,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+<<<<<<< HEAD
     public function savedProducts()
 {
     return $this->belongsToMany(Product::class, 'saved_products')->withTimestamps();
@@ -40,4 +44,6 @@ public function lastLogin()
     return $this->loginLogs()->latest()->first();
 }
 
+=======
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 }

@@ -5,6 +5,7 @@
 @section('content')
 <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
     <h2 class="text-2xl font-semibold mb-6">Bejelentkezés</h2>
+<<<<<<< HEAD
     
     @if (session('success'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -18,6 +19,8 @@
         </div>
     @endif
     
+=======
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="mb-4">
@@ -25,6 +28,7 @@
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('email') border-red-500 @enderror"
                    id="email" type="email" name="email" value="{{ old('email') }}" required>
             @error('email')
+<<<<<<< HEAD
                 <p class="text-red-500 text-xs italic">
                     {!! $message !!}
                     @if (str_contains($message, 'még nincs megerősítve'))
@@ -48,12 +52,25 @@
                     </svg>
                 </span>
             </div>
+=======
+                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Jelszó</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('password') border-red-500 @enderror"
+                   id="password" type="password" name="password" required>
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
             @error('password')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
         </div>
+<<<<<<< HEAD
         
         <div class="flex items-center justify-between mb-4">
+=======
+        <div class="flex items-center justify-between mb-6">
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
             <div class="flex items-center">
                 <input class="mr-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                 <label class="text-sm text-gray-700" for="remember">
@@ -66,11 +83,17 @@
                 </a>
             @endif
         </div>
+<<<<<<< HEAD
         
         <button class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit">Bejelentkezés</button>
     </form>
     
+=======
+        <button class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit">Bejelentkezés</button>
+    </form>
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
     <div class="mt-6 text-center">
         <p class="text-sm text-gray-600">
             Még nincs fiókod? 
@@ -78,6 +101,7 @@
                 Regisztrálj itt
             </a>
         </p>
+<<<<<<< HEAD
         @if (Route::has('resend.verification.form'))
             <p class="text-sm text-gray-600 mt-2">
                 <a href="{{ route('resend.verification.form') }}" class="text-purple-600 hover:text-purple-500">
@@ -108,3 +132,8 @@
     }
 </script>
 @endsection
+=======
+    </div>
+</div>
+@endsection
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169

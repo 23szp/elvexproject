@@ -34,6 +34,7 @@ return [
     */
 
     'mailers' => [
+<<<<<<< HEAD
 'smtp' => [
     'transport' => 'smtp',
     'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
@@ -46,6 +47,18 @@ return [
     'verify_peer' => false, // Próbáld ki ezt is, ha SSL problémák vannak
 ],
         
+=======
+        'smtp' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'port' => env('MAIL_PORT', 587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('MAIL_USERNAME'),
+            'password' => env('MAIL_PASSWORD'),
+            'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+        ],
+>>>>>>> 4ecec8f1306eb8bbd1979d39463d687569b2f169
 
         'ses' => [
             'transport' => 'ses',
